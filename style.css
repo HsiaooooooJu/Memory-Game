@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Overpass Mono', monospace;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 95%;
+  padding: 10px;
+}
+
+#header .title {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 0;
+}
+
+#header img {
+  margin-right: 2em;
+}
+
+#header h2 {
+  margin: 0;
+  font-weight: 700;
+}
+
+#header p {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 95%;
+  margin: 10px auto;
+}
+
+.card {
+  display: flex;
+  flex: 7% 0 1;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 10vw;
+  padding: 8px;
+  margin: 5px;
+  box-shadow: 1px 1px 5px rgba(50, 10, 10, 0.25);
+  background-color: #FFEAE3;
+  color: #1A0070;
+  border: none;
+  border-radius: 10px;
+  line-height: 1;
+}
+
+/* 也可以寫成 .card p:last-child */
+.card p:nth-child(3) {
+  transform: rotate(180deg);
+}
+
+.card i {
+  width: 100%;
+  text-align: center;
+  align-self: center;
+  font-size: 40px;
+}
+
+.card p {
+  margin: 1px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.back {
+  background: url('https://i.pinimg.com/564x/d7/30/03/d73003f8d3e311916b7698bbd08ccce0.jpg');
+  background-size: cover;
+}
+
+.paired {
+  background-color: #E6E7E8;
+  color: #BCBEC0;
+}
+
+.red-card {
+  color: #FF4534;
+}
+
+.wrong {
+  animation-name: wrongAnimation;
+  /* 動畫要持續 0.2 秒 */
+  animation-duration: 0.2s;
+  /* 動畫要重覆 4 次 */
+  animation-iteration-count: 4;
+}
+
+/* Game Finished */
+.completed {
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 20px rgba(60, 20, 20, 0.15);
+  width: 100vw;
+  padding: 50px 0;
+}
+
+.completed>p {
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  margin: 0;
+}
+
+.completed>p:first-child {
+  font-size: 3em;
+  font-weight: 700;
+  color: #1A0070;
+}
+
+@keyframes wrongAnimation {
+  to {
+    outline: 3px solid #FFBE00;
+  }
+}
