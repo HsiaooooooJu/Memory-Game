@@ -73,13 +73,12 @@ const view = {
   // 負責選出 #cards 並抽換內容
   displayCards(indexes) {
     const cardsElement = document.querySelector('#cards')
-    cardsElement.innerHTML = indexes.map(index => this.getCardElement(index)).join('')  // 也等於 view.getCardElement()
+    cardsElement.innerHTML = indexes.map(index => this.getCardElement(index)).join('')
   },
 
   // 翻牌
   flipCard(...cards) {
     cards.map((card) => {
-      console.log(card)
       // 如果現在顯示背面，回傳正面
       if (card.classList.contains('back')) {
         card.classList.remove('back')
@@ -101,7 +100,6 @@ const view = {
   },
 
   // 顯示分數
-  // innerText = textContent
   renderScore(score) {
     document.querySelector('.score').innerHTML = `Score: <b>${score}</b>`;
   },
@@ -204,14 +202,11 @@ const controller = {
         }
         break
     }
-    console.log('this.currentState', this.currentState)
-    console.log('revealedCard', model.revealedCards.map(card => card.dataset.index))
   },
 
   // 重置卡片狀態，回到第一步
   resetCard() {
-    view.flipCard(model.revealedCards[0])  // 翻回卡片
-    view.flipCard(model.revealedCards[1])
+    view.flipCard(...model.revealedCards)  // 翻回卡片
     model.revealedCards = []  // 清空暫存牌組
     controller.currentState = GameState.FirstCardAwaits  // 動作結束後，遊戲狀態回到第一步
   }
